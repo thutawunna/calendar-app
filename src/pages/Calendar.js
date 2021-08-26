@@ -28,7 +28,6 @@ export default class Calendar extends React.Component {
         this.setState({ events: events });
         
         this.handleEventClick = this.handleEventClick.bind(this);
-        this.getEvents = this.getEvents.bind(this);
 
     }
 
@@ -42,12 +41,18 @@ export default class Calendar extends React.Component {
                     height= "100%"
                     eventClick = { this.handleEventClick }
                     ref = { this.calendarRef }
-                    selectOverlap= {false}
+                    dayMaxEvents= {4}
+                    fixedWeekCount= {false}
+                    eventTimeFormat= {
+                        {
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            meridiem: 'short',
+                            omitZeroMinute: false,
+                        }
+                    }
                 />
-                <input type="button" onClick={ this.getEvents } value="Get Events"/>
             </div>
-            
-
             </>
         );
     }
